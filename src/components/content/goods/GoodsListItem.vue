@@ -1,7 +1,7 @@
 <template>
   <div class="goods-item">
     <!-- 商品图片 -->
-    <img :src="goodsItem.show.img" alt="" />
+    <img :src="goodsItem.show.img" alt=""  @load="imageLoad"/>
     <div class="goods-info">
       <!-- 商品标题 -->
       <p>{{ goodsItem.title }}</p>
@@ -26,15 +26,14 @@ export default {
     },
   },
   name: "VueGoodslistitem",
-  components: {},
-  directives: {},
-  data() {
-    return {};
-  },
-  mounted() {
-   
-  },
-  methods: {},
+  methods:{
+    // 图片加载完成触发则方法
+    imageLoad(){
+      // 通过事件总线传递出去
+     this.$bus.$emit('itemImageLoad');
+    }
+  }
+  
 };
 </script>
 

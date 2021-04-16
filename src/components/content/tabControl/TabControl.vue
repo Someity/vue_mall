@@ -18,6 +18,7 @@ export default {
   props: {
     titles: {
       type: Array,
+      // 当默认值是一个对象或者数组是 default必须是个函数
       default() {
         return [];
       },
@@ -33,7 +34,7 @@ export default {
       this.currentIndex = index;
       // 自定义事件传值
       this.$emit('tabClick',index)
-      console.log(index);
+     
     },
   },
 };

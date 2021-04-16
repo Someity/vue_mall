@@ -3,7 +3,7 @@
     <swiper>
       <swiper-item :key='item.length' v-for="item in banner ">
         <a :href="item.link">
-          <img :src="item.image">
+          <img :src="item.image" @load="imageLoad">
         </a>
       </swiper-item>
     </swiper>
@@ -26,10 +26,20 @@ export default {
       }
     }
   },
-  data() {
+  data(){
     return {
-      
-    };
+      isLoad:false
+    }
+  },
+  methods: {
+    // 监听轮播图是否加载完成
+    imageLoad() {
+      // 只发出一起事件就可以了 不进行多次触发
+      if(!this.isLoad){
+      this.$emit('swiperImageLoad');
+        this.isLoad = true
+      }
+    },
   },
   
 };

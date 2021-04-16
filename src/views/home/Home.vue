@@ -4,35 +4,37 @@
     <nav-bar>
       <div slot="center">购物街</div>
     </nav-bar>
+      <!-- 活动分类 -->
+      <tab-control v-show="isTabFixed" class="tab-control" ref="tabControl1" :titles="['流行', '新款', '精选']" @tabClick="TabClick" />
     <!-- 滑动组件 -->
-    <scroll 
-    class="content" 
-    ref="scroll" 
-    :probe-type='3' 
-    @scroll="contentscroll"
-    :pull-up-load='true'
-    @pullingUp='loadMore'
+    <scroll
+      class="content"
+      ref="scroll"
+      :probe-type="3"
+      @scroll="contentscroll"
+      :pull-up-load="true"
+      @pullingUp="loadMore"
     >
       <!-- 轮播图 -->
-      <home-swipre :banner="banner" />
+      <home-swipre :banner="banner" @swiperImageLoad='swiperImageLoad' />
       <!-- 推荐信息 -->
       <recommend-view :recommends="recommend" />
       <!-- 本周流行 -->
       <feature-view />
       <!-- 活动分类 -->
-      <tab-control :titles="['流行', '新款', '精选']" @tabClick="TabClick" />
+      <tab-control  ref="tabControl2" :titles="['流行', '新款', '精选']" @tabClick="TabClick" />
       <!-- 商品瀑布 -->
       <good-list :goods="showGoods" />
     </scroll>
     <!-- 回到顶部 （.native 修饰符 监听组件的原生事件）-->
-   <back-top @click.native="backClick" v-show="isShowBackTop"/>
+    <back-top @click.native="backClick" v-show="isShowBackTop" />
   </div>
 </template>
 
 <script>
 // 导入请求数据
 import { getHomeMultidata, getHomeGoods } from "network/home";
-
+import { debounce } from "common/utils";
 // ------------公共的组件---------------
 // 导入导航模块
 import NavBar from "components/common/navbar/NavBar";
@@ -43,7 +45,7 @@ import TabControl from "components/content/tabControl/TabControl";
 // 导入商品瀑布组件
 import GoodList from "components/content/goods/GoodsList";
 // 导入回到顶部组件
-import BackTop from "components/content/backTop/BackTop"
+import BackTop from "components/content/backTop/BackTop";
 
 // ------------私有的组件---------------
 // 导入轮播图
@@ -52,8 +54,6 @@ import HomeSwipre from "./childCpmps/HomeSwipe";
 import RecommendView from "./childCpmps/RecommendViws";
 // 导入本周流行
 import FeatureView from "./childCpmps/FeatureView";
-
-
 
 export default {
   // 注册组件
@@ -65,7 +65,7 @@ export default {
     RecommendView,
     FeatureView,
     Scroll,
-    BackTop
+    BackTop,
   },
   name: "Home",
   data() {
@@ -81,56 +81,96 @@ export default {
         sell: { page: 0, list: [] },
       },
       //  请求的分类
-      currentType:'pop',
+      currentType: "pop",
       // 回到顶部按钮
-      isShowBackTop:false
+      isShowBackTop: false,
+      // 选项的顶部距离
+      tabOffserTop:0,
+      // fixed样式是否生效
+      isTabFixed:false,
+      // 离开页面是的高度
+      saveY:0
     };
   },
   // 生命周期函数 模板渲染成html前调用
   created() {
+    // 请求多个数据
     this.getHomeMultidata();
+    // 请求商品数据
     this.getHomeGoods("pop");
     this.getHomeGoods("new");
     this.getHomeGoods("sell");
   },
+  mounted() {
+    // 1、 图片加载完成的事件监听
+    const refresh = debounce(this.$refs.scroll.refresh, 50);
+    // 利用--事件总线--监听图片加载完成
+    this.$bus.$on("itemImageLoad", () => {
+      // 刷新ScrollerHeight 可滚动区域
+      refresh();
+    });
+    // 2、 吸顶效果
+  },
   // 计算属性
-  computed:{
-    showGoods(){
-      return this.goods[this.currentType].list
-    }
+  computed: {
+    showGoods() {
+      return this.goods[this.currentType].list;
+    },
+  },
+  destroyed(){
+    console.log('销毁了');
+  },
+  // 离开当前页面
+  deactivated() {
+    this.saveY = this.$refs.scroll.getScrollY()
+  },
+  // 进入页面
+  activated() {
+   this.$refs.scroll.scrollTo(0,this.saveY,0)
+    // 刷新一下
+    this.$refs.scroll.refresh()
   },
   methods: {
     /**
      * 事件监听相关的方法
      */
+
     // 判断请求的数据
     TabClick(index) {
-      switch(index){
+      switch (index) {
         case 0:
-          this.currentType = 'pop'
-          break
-        case 1: 
-          this.currentType = 'new'
-          break
+          this.currentType = "pop";
+          break;
+        case 1:
+          this.currentType = "new";
+          break;
         case 2:
-          this.currentType = 'sell'
-        break
-      }
+          this.currentType = "sell";
+          break;
+      } 
+      this.$refs.tabControl1.currentIndex = index
+      this.$refs.tabControl2.currentIndex = index
+      
     },
     // 回到顶部
-    backClick(){
-      this.$refs.scroll.scrollTo(0,0)
+    backClick() {
+      this.$refs.scroll.scrollTo(0, 0);
     },
     // 判断数据的位置 控制回到顶部按钮的显示与否
-    contentscroll(position){
-      this.isShowBackTop = (-position.y)>1000
+    contentscroll(position) {
+      // 判断回到顶部按钮是否显示
+      this.isShowBackTop = -position.y > 1000;
+      // 判断吸顶效果是否显示
+      this.isTabFixed = -position.y > this.tabOffserTop
     },
     // 上拉加载更多
-    loadMore(){
+    loadMore() {
       // 重新调用获取商品列表
-      this.getHomeGoods(this.currentType)
-      // 刷新Scroll
-      this.$refs.scroll.refresh()
+      this.getHomeGoods(this.currentType);
+    },
+    // 轮播图加载完成触发此事件
+    swiperImageLoad(){
+      this.tabOffserTop = this.$refs.tabControl2.$el.offsetTop
     },
     /**
      * 网络请求相关方法
@@ -149,8 +189,8 @@ export default {
       getHomeGoods(type, page).then((res) => {
         this.goods[type].list.push(...res.data.list);
         this.goods[type].page += 1;
-        // 上拉刷新
-        this.$refs.scroll.finishPullUp()
+        // 完成上拉加载更多
+        this.$refs.scroll.finishPullUp();
       });
     },
   },
@@ -160,22 +200,22 @@ export default {
 <style scoped>
 #home {
   position: relative;
-  padding-top: 44px;
+  /* padding-top: 44px; */
   height: 100vh;
 }
 .nav-bar {
   background-color: var(--color-tint);
   color: #fff;
-  position: fixed;
+  /* 原生滚动使用的属性 */
+  /* position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  z-index: 999999;
+  z-index: 999999; */
 }
 .tab-control {
-  /* position: sticky; */
-  top: 44px;
-  z-index: 999999;
+  position: relative;
+  z-index: 999;
 }
 /* 定位方式 */
 .content {
@@ -186,7 +226,7 @@ export default {
   left: 0;
   right: 0;
 }
-  /* 动态计算 */
+/* 动态计算 */
 /* .content {
   margin-top: 44px;
   height: calc(100% - 93px);
