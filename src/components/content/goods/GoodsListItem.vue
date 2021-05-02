@@ -1,7 +1,7 @@
 <template>
-  <div class="goods-item">
+  <div class="goods-item" @click="itemClick">
     <!-- 商品图片 -->
-    <img :src="goodsItem.show.img" alt=""  @load="imageLoad"/>
+    <img :src="showImage" alt=""  @load="imageLoad"/>
     <div class="goods-info">
       <!-- 商品标题 -->
       <p>{{ goodsItem.title }}</p>
@@ -31,6 +31,15 @@ export default {
     imageLoad(){
       // 通过事件总线传递出去
      this.$bus.$emit('itemImageLoad');
+    },
+    // 跳转到详情页将id传出去 用于获取数据
+    itemClick(){
+      this.$router.push('/detail/' + this.goodsItem.iid)
+    }
+  },
+  computed:{
+    showImage(){
+      return this.goodsItem.image || this.goodsItem.show.img
     }
   }
   

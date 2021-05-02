@@ -19,7 +19,7 @@ export function request(config) {
   }, err => {
     return err
   })
-
+  // 发送网络请求
   return axios(config)
 }
 

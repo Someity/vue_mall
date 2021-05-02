@@ -15,13 +15,7 @@
 <script>
 export default {
   name: "NavBar",
-  components: {},
-  directives: {},
-  data() {
-    return {};
-  },
-  mounted() {},
-  methods: {},
+  
 };
 </script>
 

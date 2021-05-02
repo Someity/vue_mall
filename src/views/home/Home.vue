@@ -5,7 +5,12 @@
       <div slot="center">购物街</div>
     </nav-bar>
       <!-- 活动分类 -->
-      <tab-control v-show="isTabFixed" class="tab-control" ref="tabControl1" :titles="['流行', '新款', '精选']" @tabClick="TabClick" />
+      <tab-control 
+      v-show="isTabFixed" 
+      class="tab-control" 
+      ref="tabControl1" 
+      :titles="['流行', '新款', '精选']" 
+      @tabClick="TabClick" />
     <!-- 滑动组件 -->
     <scroll
       class="content"
@@ -22,7 +27,11 @@
       <!-- 本周流行 -->
       <feature-view />
       <!-- 活动分类 -->
-      <tab-control  ref="tabControl2" :titles="['流行', '新款', '精选']" @tabClick="TabClick" />
+      <tab-control  
+      ref="tabControl2" 
+      :titles="['流行', '新款', '精选']" 
+      @tabClick="TabClick" 
+      />
       <!-- 商品瀑布 -->
       <good-list :goods="showGoods" />
     </scroll>
@@ -34,7 +43,10 @@
 <script>
 // 导入请求数据
 import { getHomeMultidata, getHomeGoods } from "network/home";
-import { debounce } from "common/utils";
+// 防抖函数(以混入)
+// import { debounce } from "common/utils";
+// 混入代码
+import {itemListenerMixin,backTopMixin} from "common/mixin"
 // ------------公共的组件---------------
 // 导入导航模块
 import NavBar from "components/common/navbar/NavBar";
@@ -45,7 +57,7 @@ import TabControl from "components/content/tabControl/TabControl";
 // 导入商品瀑布组件
 import GoodList from "components/content/goods/GoodsList";
 // 导入回到顶部组件
-import BackTop from "components/content/backTop/BackTop";
+// import BackTop from "components/content/backTop/BackTop";
 
 // ------------私有的组件---------------
 // 导入轮播图
@@ -65,9 +77,11 @@ export default {
     RecommendView,
     FeatureView,
     Scroll,
-    BackTop,
+    // BackTop,
   },
   name: "Home",
+  // 混入数据
+  mixins:[itemListenerMixin,backTopMixin],
   data() {
     return {
       // 轮播图数据
@@ -82,8 +96,8 @@ export default {
       },
       //  请求的分类
       currentType: "pop",
-      // 回到顶部按钮
-      isShowBackTop: false,
+      // // 回到顶部按钮
+      // isShowBackTop: false,
       // 选项的顶部距离
       tabOffserTop:0,
       // fixed样式是否生效
@@ -101,15 +115,17 @@ export default {
     this.getHomeGoods("new");
     this.getHomeGoods("sell");
   },
+  // 生命周期函数 模板渲染成html后调用
   mounted() {
-    // 1、 图片加载完成的事件监听
-    const refresh = debounce(this.$refs.scroll.refresh, 50);
-    // 利用--事件总线--监听图片加载完成
-    this.$bus.$on("itemImageLoad", () => {
-      // 刷新ScrollerHeight 可滚动区域
-      refresh();
-    });
-    // 2、 吸顶效果
+    
+    // // 1、 图片加载完成的事件监听
+    // const refresh = debounce(this.$refs.scroll.refresh, 50);
+    // // 利用--事件总线--监听图片加载完成
+    // this.$bus.$on("itemImageLoad", () => {
+    //   // 刷新ScrollerHeight 可滚动区域
+    //   refresh();
+    // });
+ 
   },
   // 计算属性
   computed: {
@@ -117,15 +133,17 @@ export default {
       return this.goods[this.currentType].list;
     },
   },
-  destroyed(){
-    console.log('销毁了');
-  },
-  // 离开当前页面
+    // 离开当前页面触发
   deactivated() {
+    // 保存离开页面是的Y坐标
     this.saveY = this.$refs.scroll.getScrollY()
+    // 销毁全局的事件监听
+    this.$bus.$off('itemImageLoad',this.itemImgListener)
   },
-  // 进入页面
+  // 进入页面触发
   activated() {
+    // scrollTo（x轴，y轴， 移动时间：毫秒）
+    // 进入页回到离开的坐标
    this.$refs.scroll.scrollTo(0,this.saveY,0)
     // 刷新一下
     this.$refs.scroll.refresh()
@@ -134,7 +152,6 @@ export default {
     /**
      * 事件监听相关的方法
      */
-
     // 判断请求的数据
     TabClick(index) {
       switch (index) {
@@ -148,18 +165,19 @@ export default {
           this.currentType = "sell";
           break;
       } 
+      // 两个tabControl 保持一致
       this.$refs.tabControl1.currentIndex = index
       this.$refs.tabControl2.currentIndex = index
       
     },
-    // 回到顶部
-    backClick() {
-      this.$refs.scroll.scrollTo(0, 0);
-    },
-    // 判断数据的位置 控制回到顶部按钮的显示与否
+    // // 回到顶部
+    // backClick() {
+    //   this.$refs.scroll.scrollTo(0, 0);
+    // },
+    // 判断滑动的位置
     contentscroll(position) {
-      // 判断回到顶部按钮是否显示
-      this.isShowBackTop = -position.y > 1000;
+      // 调用混入的代码判断回到顶部按钮是否显示
+      this.listenshowBackTop(position)
       // 判断吸顶效果是否显示
       this.isTabFixed = -position.y > this.tabOffserTop
     },
