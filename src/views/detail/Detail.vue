@@ -27,11 +27,12 @@
     <detail-bottom-bar @addCart="addToCart"/>
     <!-- 回到顶部 （.native 修饰符 监听组件的原生事件）-->
     <back-top @click.native="backClick" v-show="isShowBackTop" />
+    <!-- <toast :message="message" :show="show"/> -->
   </div>
 </template>
 
 <script>
-// 导航
+// 组件
 import DetailNavBar from "./childComps/DetailNavBar.vue";
 import DetailSwiper from "./childComps/DetailSwiper.vue";
 import DatailBaseInfo from "./childComps/DataBaseInfo.vue";
@@ -40,13 +41,14 @@ import DetailGoodsInfo from "./childComps/DetailGoodsInfo.vue";
 import DetailParamsInfo from "./childComps/DetailParamsInfo.vue";
 import DetailCommentInfo from "./childComps/DetailCommentInfo.vue";
 import DetailBottomBar from './childComps/DetailBottomBar.vue';
-
 import Scroll from "components/common/scroll/Scroll.vue";
 import GoodsList from "components/content/goods/GoodsList.vue";
 // 防抖函数
 import { debounce } from "common/utils";
 // 混入代码
 import { itemListenerMixin,backTopMixin } from "common/mixin";
+// 映射代码
+import {mapActions} from 'vuex'
 // 数据请求
 import {
   getDetail,
@@ -55,6 +57,10 @@ import {
   GoodsParam,
   getRecommend,
 } from "network/detail";
+// import Toast from '../../components/common/toast/Toast.vue';
+
+
+
 
 export default {
   name: "Detail",
@@ -69,6 +75,7 @@ export default {
     DetailCommentInfo,
     GoodsList,
     DetailBottomBar,
+    // Toast,
   },
   // 混入数据
   mixins: [itemListenerMixin,backTopMixin],
@@ -95,7 +102,9 @@ export default {
       // 给计算Y值的代码进行防抖
       getThemeTopY:null,
       // 当前模块对应的index值（滑动改变颜色top
-      currentIndex:0
+      currentIndex:0,
+      // message:'',
+      // show:false
     };
   },
   created() {
@@ -123,7 +132,11 @@ export default {
         data.itemParams.rule
       );
       // 6、评论信息
-      this.commentInfo = data.rate.list[0];
+      if(data.rate.list){
+        this.commentInfo = data.rate.list[0] ;
+      }
+       
+     
     }),
     // 推荐数据
     getRecommend().then((res) => {
@@ -141,6 +154,8 @@ export default {
   },
   mounted() {},
   methods: {
+    // 映射代码
+    ...mapActions(['addCart']),
     // 重新计算scroll的高度
     imageLoad() {
       // 重新刷新
@@ -201,9 +216,19 @@ export default {
       product.desc = this.goods.desc
       product.price = this.goods.realPrice
       product.iid = this.iid
-      // 2、将商品加入购物车
+
+      // 2、将商品加入购物车 ___知识点_[1、返回promise 2、vuex的映射 mapActions]
       //  this.$store.commit('addCart',product)
-       this.$store.dispatch('addCart', product);
+       this.addCart(product).then(res => {
+        // //  普通封装 
+        //  this.show = true
+        //  this.message = res
+        //  setTimeout(() => {
+        //    this.show = false
+        //    this.message = ''
+        //  }, 1500);
+        this.$toast.show(res)
+       })
     }
   },
   // 销毁前调用
@@ -233,4 +258,6 @@ export default {
   position: relative;
   z-index: 9999;
 } */
+
+
 </style>

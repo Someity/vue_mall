@@ -1,6 +1,6 @@
 <!-- 详情页商品店铺信息 -->
 <template>
-  <div class="detail-shop-info">
+  <div class="detail-shop-info" v-if="Object.keys(shop).length !== 0">
      <!-- 店家图标和名称 -->
     <div class="shop-top">
       <img :src="shop.logo" alt="">
