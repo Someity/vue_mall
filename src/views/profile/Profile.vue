@@ -1,10 +1,11 @@
 <!--  -->
 <template>
   <div id="profile">
+    <!-- 导航栏 -->
       <nav-bar class="nav-bar">
          <div slot="center">我的</div>
       </nav-bar>
-
+<!-- 用户信息 -->
       <user-info></user-info>
 
       <shop-info></shop-info>
