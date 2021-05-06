@@ -1,7 +1,8 @@
 <template>
   <div v-show="isShow" class="toast">
     <div>
-      {{ message }}
+      <!-- <img src="~assets/img/common/check.svg"> -->
+      <span>{{ message }}</span>
     </div>
   </div>
 </template>
@@ -39,5 +40,16 @@ export default {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 25px;
   z-index: 99999;
+  text-align: center;
 }
+/* .toast img {
+  height: 50px;
+  width: 50px;
+  
+}
+.toast span {
+  display: block;
+  
+
+} */
 </style>

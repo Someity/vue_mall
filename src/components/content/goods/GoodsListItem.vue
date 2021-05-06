@@ -1,7 +1,7 @@
 <template>
   <div class="goods-item" @click="itemClick">
     <!-- 商品图片 -->
-    <img :src="showImage" alt=""  @load="imageLoad"/>
+    <img v-lazy="showImage" alt="" @load="imageLoad" />
     <div class="goods-info">
       <!-- 商品标题 -->
       <p>{{ goodsItem.title }}</p>
@@ -26,29 +26,34 @@ export default {
     },
   },
   name: "VueGoodslistitem",
-  methods:{
+  methods: {
     // 图片加载完成触发则方法
-    imageLoad(){
+    imageLoad() {
       // 通过事件总线传递出去
-     this.$bus.$emit('itemImageLoad');
+      this.$bus.$emit("itemImageLoad");
     },
     // 跳转到详情页将id传出去 用于获取数据
-    itemClick(){
-      this.$router.push('/detail/' + this.goodsItem.iid)
-    }
+    itemClick() {
+      this.$router.push("/detail/" + this.goodsItem.iid);
+    },
   },
-  computed:{
-    showImage(){
-      return this.goodsItem.image || this.goodsItem.show.img
-    }
-  }
-  
+  computed: {
+    showImage() {
+      if (this.goodsItem.show) {
+        return this.goodsItem.show.img;
+      } else if (this.goodsItem.image) {
+        return this.goodsItem.image;
+      } else {
+        return this.goodsItem.img;
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
 .goods-item {
- padding-bottom: 40px;
+  padding-bottom: 40px;
   position: relative;
   width: 48%;
 }
@@ -65,7 +70,7 @@ export default {
   right: 0;
   text-align: center;
   overflow: hidden;
-  }
+}
 .goods-info p {
   overflow: hidden;
   text-overflow: ellipsis;

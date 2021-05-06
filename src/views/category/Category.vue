@@ -1,154 +1,220 @@
+<!--  -->
 <template>
-  <div class="weapper">
-    <ul class="content">
-			<button @click="btncilck">jiandi</button>
-      <li>分类页面1</li>
-      <li>分类页面2</li>
-      <li>分类页面3</li>
-      <li>分类页面4</li>
-      <li>分类页面5</li>
-      <li>分类页面6</li>
-      <li>分类页面7</li>
-      <li>分类页面8</li>
-      <li>分类页面9</li>
-      <li>分类页面10</li>
-      <li>分类页面11</li>
-      <li>分类页面12</li>
-      <li>分类页面13</li>
-      <li>分类页面14</li>
-      <li>分类页面15</li>
-      <li>分类页面16</li>
-      <li>分类页面17</li>
-      <li>分类页面18</li>
-      <li>分类页面19</li>
-      <li>分类页面20</li>
-      <li>分类页面21</li>
-      <li>分类页面22</li>
-      <li>分类页面23</li>
-      <li>分类页面24</li>
-      <li>分类页面25</li>
-      <li>分类页面26</li>
-      <li>分类页面27</li>
-      <li>分类页面28</li>
-      <li>分类页面29</li>
-      <li>分类页面30</li>
-      <li>分类页面31</li>
-      <li>分类页面32</li>
-      <li>分类页面33</li>
-      <li>分类页面34</li>
-      <li>分类页面35</li>
-      <li>分类页面36</li>
-      <li>分类页面37</li>
-      <li>分类页面38</li>
-      <li>分类页面39</li>
-      <li>分类页面40</li>
-      <li>分类页面41</li>
-      <li>分类页面42</li>
-      <li>分类页面43</li>
-      <li>分类页面44</li>
-      <li>分类页面45</li>
-      <li>分类页面46</li>
-      <li>分类页面47</li>
-      <li>分类页面48</li>
-      <li>分类页面49</li>
-      <li>分类页面50</li>
-      <li>分类页面51</li>
-      <li>分类页面52</li>
-      <li>分类页面53</li>
-      <li>分类页面54</li>
-      <li>分类页面55</li>
-      <li>分类页面56</li>
-      <li>分类页面57</li>
-      <li>分类页面58</li>
-      <li>分类页面59</li>
-      <li>分类页面60</li>
-      <li>分类页面61</li>
-      <li>分类页面62</li>
-      <li>分类页面63</li>
-      <li>分类页面64</li>
-      <li>分类页面65</li>
-      <li>分类页面66</li>
-      <li>分类页面67</li>
-      <li>分类页面68</li>
-      <li>分类页面69</li>
-      <li>分类页面70</li>
-      <li>分类页面71</li>
-      <li>分类页面72</li>
-      <li>分类页面73</li>
-      <li>分类页面74</li>
-      <li>分类页面75</li>
-      <li>分类页面76</li>
-      <li>分类页面77</li>
-      <li>分类页面78</li>
-      <li>分类页面79</li>
-      <li>分类页面80</li>
-      <li>分类页面81</li>
-      <li>分类页面82</li>
-      <li>分类页面83</li>
-      <li>分类页面84</li>
-      <li>分类页面85</li>
-      <li>分类页面86</li>
-      <li>分类页面87</li>
-      <li>分类页面88</li>
-      <li>分类页面89</li>
-      <li>分类页面90</li>
-      <li>分类页面91</li>
-      <li>分类页面92</li>
-      <li>分类页面93</li>
-      <li>分类页面94</li>
-      <li>分类页面95</li>
-      <li>分类页面96</li>
-      <li>分类页面97</li>
-      <li>分类页面98</li>
-      <li>分类页面99</li>
-      <li>分类页面100</li>
-    </ul>
+  <div id="category">
+    <nav-bar class="nav-bar">
+      <div slot="center">商品分类</div>
+    </nav-bar>
+
+    <!-- 侧边栏菜单 -->
+    <cate-left-menu
+      :cartType="cartType"
+      @leftItemClick="leftItemClick"
+    ></cate-left-menu>
+
+    <!-- 流行新款精选菜单切换组件 -->
+    <tab-control
+      :titles="titles"
+      @tabClick="tabClick"
+      ref="tabControlTop"
+      class="tab-control-top"
+      v-show="isShowTabControl"
+    ></tab-control>
+
+    <scroll ref="scroll" class="scroll" @scroll="listenshowBackTop" :probeType="3"> 
+      <cate-grid-content
+        :varieticeList="varieticeList"
+        class="grid-content"
+        @gridImgLoaded="gridImgLoaded"
+      ></cate-grid-content>
+
+      <tab-control
+        :titles="titles"
+        @tabClick="tabClick"
+        ref="tabControl"
+      ></tab-control>
+
+      <goods-list :goods="showTabGoods"></goods-list>
+    </scroll>
+
+    <back-top v-show="isShowBackTop" @click.native="backClick"></back-top>
   </div>
 </template>
 
 <script>
-import BScroll from "better-scroll";
+import NavBar from "components/common/navbar/NavBar.vue";
+import Scroll from "components/common/scroll/Scroll.vue";
+import TabControl from "components/content/tabControl/TabControl.vue";
+import GoodsList from "components/content/goods/GoodsList.vue";
+import BackTop from 'components/content/backTop/BackTop.vue';
+
+import {getCategory,
+        getVarietice,
+        getVarieticeGoods
+        } from "network/category.js";
+import {backTopMixin} from "common/mixin";
+
+import CateLeftMenu from "./childComps/CateLeftMenu";
+import CateGridContent from "./childComps/CateGridContent.vue";
+
 
 export default {
   name: "Category",
+  mixins: [backTopMixin],
   data() {
     return {
-      scroll: null,
+      //保存左侧边栏商品分类
+      cartType: [],
+      //每个分类下的商品对象
+      categoryInfo: {},
+
+      //当前点击的索引
+      currentIndex: -1,
+
+      //tab标题
+      titles: ["流行", "新款", "精选"],
+
+      //tab栏默认展示pop流行栏数据
+      currentShow: "pop",
+
+      //是否显示顶部的tab栏
+      isShowTabControl: false,
+
+      //tab栏距离页面顶部的高度
+      tabControlOffsetTop: null,
     };
   },
-	// 
-  created() {
-		
+
+  components: {
+    NavBar,
+    CateLeftMenu,
+    CateGridContent,
+    Scroll,
+    TabControl,
+    GoodsList,
+    BackTop,
   },
-	// 组件创建完后调用
-	mounted(){
-		let weapper = document.querySelector('.weapper')
 
-		this.scroll = new BScroll(weapper, {
-				probeType:3,
-				pullUpLoad:true
-		})
-		
-		this.scroll.on('scroll', (position)=>{
-			console.log(position);
-		})
+  computed: {
+    varieticeList() {
+      return this.currentIndex != -1
+        ? this.categoryInfo[this.currentIndex].varieticeData
+        : {};
+    },
+    showTabGoods() {
+      return this.currentIndex != -1
+        ? this.categoryInfo[this.currentIndex]
+        .goodsControlData[this.currentShow]
+        : [];
+    },
+  },
 
-		this.scroll.on('pullingUp',()=>{
-			console.log('加载更多');
-		})
-	},
-	methods:{
-		btncilck(){
-			console.log(999);
-		}
-	}
+  mounted() {},
+
+  created() {
+    this.getCategory();
+  },
+  updated() {
+    this.$refs.scroll.refresh();
+  },
+
+  methods: {
+    getCategory() {
+      getCategory().then((res) => {
+        // console.log(res.data.category.list);
+        this.cartType = res.data.category.list;
+        for (let i = 0; i < this.cartType.length; i++) {
+          this.categoryInfo[i] = {
+            //商品中的品类数据
+            varieticeData: {},
+            //商品的goodslist
+            goodsControlData: {
+              pop: [],
+              new: [],
+              sell: [],
+            },
+          };
+        }
+        this._getVarietice(0);
+      });
+    },
+    _getVarietice(index) {
+      let maitKey = this.cartType[index].maitKey;
+     getVarietice(maitKey).then((res) => {
+        // console.log(res)
+        this.categoryInfo[index].varieticeData = res.data;
+        this.categoryInfo = { ...this.categoryInfo };
+
+        this.currentIndex = index;
+
+        this._getTabControlGoods("pop");
+        this._getTabControlGoods("new");
+        this._getTabControlGoods("sell");
+
+        this.$refs.scroll.refresh();
+      });
+    },
+    _getTabControlGoods(type) {
+      // 获取请求的miniWallkey
+      const miniWallkey = this.cartType[this.currentIndex].miniWallkey;
+      // 发送请求,传入miniWallkey和type
+      getVarieticeGoods(miniWallkey, type).then((res) => {
+        //将获取的数据保存下来
+        // console.log(res)
+        this.categoryInfo[this.currentIndex].goodsControlData[type] = res;
+        this.categoryInfo = { ...this.categoryInfo };
+      });
+    },
+
+    leftItemClick(index) {
+      this._getVarietice(index);
+      this.currentIndex = index;
+    },
+
+    tabClick(index) {
+      switch (index) {
+        case 0:
+          this.currentShow = "pop";
+          break;
+        case 1:
+          this.currentShow = "new";
+          break;
+        case 2:
+          this.currentShow = "sell";
+          break;
+      }
+
+      this.$refs.tabControl.currentIndex = index;
+      this.$refs.tabControlTop.currentIndex = index;
+    },
+    gridImgLoaded() {
+      this.tabControlOffsetTop = this.$refs.tabControl.$el.offsetTop;
+    },
+  },
 };
 </script>
+<style  scoped>
+.nav-bar {
+  background-color: #ff8198;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
 
-<style scoped>
-.weapper {
-  height: 200px;
-  background-color: red;
-	overflow: hidden;
+.tab-control-top {
+  width: 75%;
+  position: absolute;
+  top: 43px;
+  right: 0;
+  z-index: 2;
+  background-color: #fff;
+}
+
+.scroll {
+  position: absolute;
+  width: 75%;
+  top: 45px;
+  right: 0;
+  height: calc(100vh - 93px);
+  overflow: hidden;
 }
 </style>
