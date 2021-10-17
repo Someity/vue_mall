@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "vue_mall/js/" + ({}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -203,7 +203,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "/vue_mall/";
 /******/
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
@@ -509,7 +509,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/category.12bedb89.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/category.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/category.12bedb89.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/category.svg?");
 
 /***/ }),
 
@@ -520,7 +520,7 @@ eval("module.exports = __webpack_require__.p + \"img/category.12bedb89.svg\";\n\
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/category_active.cb2cc09f.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/category_active.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/category_active.cb2cc09f.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/category_active.svg?");
 
 /***/ }),
 
@@ -531,7 +531,7 @@ eval("module.exports = __webpack_require__.p + \"img/category_active.cb2cc09f.sv
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/home.7210ddcb.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/home.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/home.7210ddcb.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/home.svg?");
 
 /***/ }),
 
@@ -542,7 +542,7 @@ eval("module.exports = __webpack_require__.p + \"img/home.7210ddcb.svg\";\n\n//#
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/home_active.cc40b6f2.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/home_active.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/home_active.cc40b6f2.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/home_active.svg?");
 
 /***/ }),
 
@@ -553,7 +553,7 @@ eval("module.exports = __webpack_require__.p + \"img/home_active.cc40b6f2.svg\";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/profile.42d7cf12.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/profile.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/profile.42d7cf12.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/profile.svg?");
 
 /***/ }),
 
@@ -564,7 +564,7 @@ eval("module.exports = __webpack_require__.p + \"img/profile.42d7cf12.svg\";\n\n
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/profile_active.fd66b281.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/profile_active.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/profile_active.fd66b281.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/profile_active.svg?");
 
 /***/ }),
 
@@ -575,7 +575,7 @@ eval("module.exports = __webpack_require__.p + \"img/profile_active.fd66b281.svg
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/shopcart.c68224ce.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/shopcart.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/shopcart.c68224ce.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/shopcart.svg?");
 
 /***/ }),
 
@@ -586,7 +586,7 @@ eval("module.exports = __webpack_require__.p + \"img/shopcart.c68224ce.svg\";\n\
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/shopcart_active.3f0a2016.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/shopcart_active.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/shopcart_active.3f0a2016.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/tabbar/shopcart_active.svg?");
 
 /***/ }),
 
@@ -814,7 +814,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var elem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ \"./node_modules/core-js/modules/es.object.to-string.js\");\n/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.iterator.js */ \"./node_modules/core-js/modules/es.string.iterator.js\");\n/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ \"./node_modules/core-js/modules/web.dom-collections.iterator.js\");\n/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.runtime.esm.js\");\n/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ \"./node_modules/vue-router/dist/vue-router.esm.js\");\n\n\n\n\n //  懒加载方式导入模块\n\nvar Home = function Home() {\n  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(3), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! views/home/Home */ \"./src/views/home/Home.vue\"));\n};\n\nvar Category = function Category() {\n  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! views/category/Category */ \"./src/views/category/Category.vue\"));\n};\n\nvar Cart = function Cart() {\n  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! views/cart/Cart */ \"./src/views/cart/Cart.vue\"));\n};\n\nvar Profile = function Profile() {\n  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! views/profile/Profile */ \"./src/views/profile/Profile.vue\"));\n};\n\nvar Detail = function Detail() {\n  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! views/detail/Detail */ \"./src/views/detail/Detail.vue\"));\n};\n\nvar Login = function Login() {\n  return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! views/login/Login */ \"./src/views/login/Login.vue\"));\n};\n\nvar Registered = function Registered() {\n  return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! views/login/registered */ \"./src/views/login/registered.vue\"));\n}; // 1、安装插件\n\n\nvue__WEBPACK_IMPORTED_MODULE_3__[\"default\"].use(vue_router__WEBPACK_IMPORTED_MODULE_4__[\"default\"]); // 2、创建router实例\n\nvar routes = [{\n  path: \"\",\n  // 重定向\n  redirect: \"/home\"\n}, {\n  path: \"/home\",\n  component: Home\n}, {\n  path: \"/category\",\n  component: Category\n}, {\n  path: \"/cart\",\n  component: Cart\n}, {\n  path: \"/profile\",\n  component: Profile\n}, {\n  path: \"/detail/:id\",\n  component: Detail\n}, {\n  path: \"/login\",\n  component: Login\n}, {\n  path: \"/registered\",\n  component: Registered\n}];\nvar router = new vue_router__WEBPACK_IMPORTED_MODULE_4__[\"default\"]({\n  routes: routes,\n  // 路由模式\n  mode: \"history\"\n}); // 3、 导出\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (router);\n\n//# sourceURL=webpack:///./src/router/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ \"./node_modules/core-js/modules/es.object.to-string.js\");\n/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.iterator.js */ \"./node_modules/core-js/modules/es.string.iterator.js\");\n/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ \"./node_modules/core-js/modules/web.dom-collections.iterator.js\");\n/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.runtime.esm.js\");\n/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ \"./node_modules/vue-router/dist/vue-router.esm.js\");\n\n\n\n\n //  懒加载方式导入模块\n\nvar Home = function Home() {\n  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(3), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! views/home/Home */ \"./src/views/home/Home.vue\"));\n};\n\nvar Category = function Category() {\n  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! views/category/Category */ \"./src/views/category/Category.vue\"));\n};\n\nvar Cart = function Cart() {\n  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! views/cart/Cart */ \"./src/views/cart/Cart.vue\"));\n};\n\nvar Profile = function Profile() {\n  return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! views/profile/Profile */ \"./src/views/profile/Profile.vue\"));\n};\n\nvar Detail = function Detail() {\n  return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! views/detail/Detail */ \"./src/views/detail/Detail.vue\"));\n};\n\nvar Login = function Login() {\n  return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! views/login/Login */ \"./src/views/login/Login.vue\"));\n};\n\nvar Registered = function Registered() {\n  return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! views/login/registered */ \"./src/views/login/registered.vue\"));\n}; // 1、安装插件\n\n\nvue__WEBPACK_IMPORTED_MODULE_3__[\"default\"].use(vue_router__WEBPACK_IMPORTED_MODULE_4__[\"default\"]); // 2、创建router实例\n\nvar routes = [{\n  path: \"\",\n  // 重定向\n  redirect: \"/home\"\n}, {\n  path: \"/home\",\n  component: Home\n}, {\n  path: \"/category\",\n  component: Category\n}, {\n  path: \"/cart\",\n  component: Cart\n}, {\n  path: \"/profile\",\n  component: Profile\n}, {\n  path: \"/detail/:id\",\n  component: Detail\n}, {\n  path: \"/login\",\n  component: Login\n}, {\n  path: \"/registered\",\n  component: Registered\n}];\nvar router = new vue_router__WEBPACK_IMPORTED_MODULE_4__[\"default\"]({\n  routes: routes,\n  // 路由模式\n  mode: \"history\",\n  base: \"/vue_mall/\"\n}); // 3、 导出\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (router);\n\n//# sourceURL=webpack:///./src/router/index.js?");
 
 /***/ }),
 

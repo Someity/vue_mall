@@ -15,5 +15,8 @@ module.exports = {
       disableHostCheck: true
     }
   },
-  outputDir: "docs"
+  outputDir: "docs",
+  publicPath: "/vue_mall/",
+  outputDir: "docs",
+  assetsDir: "vue_mall"
 };

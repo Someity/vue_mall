@@ -260,7 +260,7 @@ eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// lo
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/tick.5228ea23.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/cart/tick.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/tick.5228ea23.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/cart/tick.svg?");
 
 /***/ }),
 

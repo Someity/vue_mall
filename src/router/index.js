@@ -52,7 +52,8 @@ const routes = [
 const router = new VueRouter({
   routes,
   // 路由模式
-  mode: "history"
+  mode: "history",
+  base: "/vue_mall/"
 });
 // 3、 导出
 export default router;

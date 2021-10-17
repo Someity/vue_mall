@@ -237,7 +237,7 @@ eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// lo
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/arrow-left.95e55ae9.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/common/arrow-left.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/arrow-left.95e55ae9.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/common/arrow-left.svg?");
 
 /***/ }),
 
@@ -248,7 +248,7 @@ eval("module.exports = __webpack_require__.p + \"img/arrow-left.95e55ae9.svg\";\
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/avatar.bd23b9b1.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/avatar.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/avatar.bd23b9b1.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/avatar.svg?");
 
 /***/ }),
 
@@ -259,7 +259,7 @@ eval("module.exports = __webpack_require__.p + \"img/avatar.bd23b9b1.svg\";\n\n/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/cart.0103a021.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/cart.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/cart.0103a021.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/cart.svg?");
 
 /***/ }),
 
@@ -270,7 +270,7 @@ eval("module.exports = __webpack_require__.p + \"img/cart.0103a021.svg\";\n\n//#
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/message.9948ca06.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/message.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/message.9948ca06.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/message.svg?");
 
 /***/ }),
 
@@ -281,7 +281,7 @@ eval("module.exports = __webpack_require__.p + \"img/message.9948ca06.svg\";\n\n
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/phone.aa2bc9a6.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/phone.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/phone.aa2bc9a6.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/phone.svg?");
 
 /***/ }),
 
@@ -292,7 +292,7 @@ eval("module.exports = __webpack_require__.p + \"img/phone.aa2bc9a6.svg\";\n\n//
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/pointer.71eb1cd2.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/pointer.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/pointer.71eb1cd2.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/pointer.svg?");
 
 /***/ }),
 
@@ -303,7 +303,7 @@ eval("module.exports = __webpack_require__.p + \"img/pointer.71eb1cd2.svg\";\n\n
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/shopping.7354bae5.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/shopping.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/shopping.7354bae5.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/shopping.svg?");
 
 /***/ }),
 
@@ -314,7 +314,7 @@ eval("module.exports = __webpack_require__.p + \"img/shopping.7354bae5.svg\";\n\
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/vip.c9cdc9ff.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/vip.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/vip.c9cdc9ff.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/profile/vip.svg?");
 
 /***/ }),
 

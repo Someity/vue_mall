@@ -2990,7 +2990,7 @@ eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// lo
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"fonts/element-icons.732389de.ttf\";\n\n//# sourceURL=webpack:///./node_modules/element-ui/lib/theme-chalk/fonts/element-icons.ttf?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/fonts/element-icons.732389de.ttf\";\n\n//# sourceURL=webpack:///./node_modules/element-ui/lib/theme-chalk/fonts/element-icons.ttf?");
 
 /***/ }),
 
@@ -3001,7 +3001,7 @@ eval("module.exports = __webpack_require__.p + \"fonts/element-icons.732389de.tt
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"fonts/element-icons.535877f5.woff\";\n\n//# sourceURL=webpack:///./node_modules/element-ui/lib/theme-chalk/fonts/element-icons.woff?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/fonts/element-icons.535877f5.woff\";\n\n//# sourceURL=webpack:///./node_modules/element-ui/lib/theme-chalk/fonts/element-icons.woff?");
 
 /***/ }),
 

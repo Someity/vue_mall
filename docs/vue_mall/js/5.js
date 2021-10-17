@@ -433,7 +433,7 @@ eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// lo
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/back.26df9036.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/common/back.svg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/back.26df9036.svg\";\n\n//# sourceURL=webpack:///./src/assets/img/common/back.svg?");
 
 /***/ }),
 
@@ -444,7 +444,7 @@ eval("module.exports = __webpack_require__.p + \"img/back.26df9036.svg\";\n\n//#
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/detail_bottom.a8e4b3c7.png\";\n\n//# sourceURL=webpack:///./src/assets/img/detail/detail_bottom.png?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/detail_bottom.a8e4b3c7.png\";\n\n//# sourceURL=webpack:///./src/assets/img/detail/detail_bottom.png?");
 
 /***/ }),
 

@@ -356,7 +356,7 @@ eval("// style-loader: Adds some css to the DOM by adding a <style> tag\n\n// lo
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"img/recommend_bg.794b6628.jpg\";\n\n//# sourceURL=webpack:///./src/assets/img/home/recommend_bg.jpg?");
+eval("module.exports = __webpack_require__.p + \"vue_mall/img/recommend_bg.794b6628.jpg\";\n\n//# sourceURL=webpack:///./src/assets/img/home/recommend_bg.jpg?");
 
 /***/ }),
 
