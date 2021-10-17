@@ -52,7 +52,7 @@ const routes = [
 const router = new VueRouter({
   routes,
   // 路由模式
-  mode: "history",
+  mode: "hash",
   base: "/vue_mall/"
 });
 // 3、 导出
