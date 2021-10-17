@@ -8,7 +8,8 @@
       v-if="varieticeList"
     >
       <div v-for="(item, index) in varieticeList.list" :key="index" class="item">
-        <a :href="item.link">
+        <!-- <a :href="item.link"> -->
+        <a>
           <img class="item-img" :src="item.image" alt="" @load="imageLoaded" />
           <div class="item-text">{{ item.title }}</div>
         </a>

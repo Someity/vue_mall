@@ -1,19 +1,19 @@
-import {request} from './request'
+import { request } from "./request";
 // ------------获取详情页数据---------------
 
-export function getDetail(iid){
+export function getDetail(iid) {
   return request({
-    url:'/detail',
-    params:{
+    url: "/detail",
+    params: {
       iid
     }
-  })
+  });
 }
 // 推荐数据
-export function getRecommend(){
+export function getRecommend() {
   return request({
-    url:'recommend'
-  })
+    url: "recommend"
+  });
 }
 // 商品介绍的数据对象
 export class GoodInfo {
@@ -42,24 +42,24 @@ export class GoodInfo {
 export class Shop {
   constructor(shopInfo) {
     // 商家图片
-      this.logo = shopInfo.shopLogo;
-      // 商家名称
-      this.name = shopInfo.name;
-      // 
-      this.fans = shopInfo.cFans;
-      // 销量
-      this.sells = shopInfo.cSells;
-      // 店铺描述
-      this.score = shopInfo.score;
-      //  商品件数
-      this.goodsCount = shopInfo.cGoods;
+    this.logo = shopInfo.shopLogo;
+    // 商家名称
+    this.name = shopInfo.name;
+    //
+    this.fans = shopInfo.cFans;
+    // 销量
+    this.sells = shopInfo.cSells;
+    // 店铺描述
+    this.score = shopInfo.score;
+    //  商品件数
+    this.goodsCount = shopInfo.cGoods;
   }
 }
-// 商品尺码参数等数据对象
+// 商品评价 尺码参数等数据对象
 export class GoodsParam {
   constructor(info, rule) {
-      this.images = 'images' in info ? info.images[0] : '',
-          this.infos = info.set,
-          this.sizes = rule.tables
+    (this.images = "images" in info ? info.images[0] : ""),
+      (this.infos = info.set),
+      (this.sizes = rule.tables);
   }
 }

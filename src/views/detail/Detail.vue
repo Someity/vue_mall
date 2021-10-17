@@ -1,4 +1,5 @@
 <template>
+<!-- 详情页 -->
   <div id="detail">
     <!-- 导航栏 -->
     <detail-nav-bar class="detail-nav" @titleClick="titleClick"  ref="nav"/>
@@ -227,6 +228,7 @@ export default {
         //    this.show = false
         //    this.message = ''
         //  }, 1500);
+        // 弹窗
         this.$toast.show(res)
        })
     }
@@ -253,6 +255,7 @@ export default {
 }
 .content {
   height: calc(100% - 44px - 49px);
+  overflow: hidden;
 }
 /* .goods-list {
   position: relative;

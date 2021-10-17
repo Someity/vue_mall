@@ -30,7 +30,7 @@ export default {
   computed: {},
 
   mounted() {
-    console.log(this.list);
+    // console.log(this.list);
   },
 
   methods: {},

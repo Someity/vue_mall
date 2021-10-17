@@ -5,6 +5,7 @@
     <nav-bar>
 			<!-- 插槽 -->
       <div slot="center">购物车({{ length }})</div>
+      <!-- <div  slot="right" @click="deit">编辑</div> -->
     </nav-bar>
 		<!-- 商品列表 -->
 		<cart-list/>

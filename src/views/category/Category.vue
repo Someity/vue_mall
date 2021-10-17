@@ -1,4 +1,4 @@
-<!--  -->
+<!-- 分类页面 -->
 <template>
   <div id="category">
     <nav-bar class="nav-bar">
